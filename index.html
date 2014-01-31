@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Filgrane by NassimBahri</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Filgrane</h1>
+        <h2>Créer facilement des filgranes pour vos images en PHP</h2>
+        <a href="https://github.com/NassimBahri/Filgrane" class="button"><small>View project on</small>GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a name="a-propos" class="anchor" href="#a-propos"><span class="octicon octicon-link"></span></a>A propos</h1>
+
+<p>Créer facilement des filgranes pour vos images en PHP afin de les protéger contre les voleurs ou les utilisateurs malins :)</p>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>Tout d'abord vous devez charger la librairie GD dans votre serveur.</p>
+
+<p>Par la suite déplacer le fichier Filgrane.php dans votre répertoire de travail.</p>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>Etape 1 : Inclure la classe Filgrane.php dans vos fichiers de travail</p>
+
+<div class="highlight highlight-php"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="k">require_once</span> <span class="s1">'Filgrane.php'</span><span class="p">;</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+
+<p>Etape 2 : Initialiser la classe Filgrane avec les valeurs nécessaires</p>
+
+<div class="highlight highlight-php"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="nv">$legend</span><span class="o">=</span><span class="k">new</span> <span class="nx">Filgrane</span><span class="p">(</span><span class="nv">$originalImg</span><span class="p">,</span><span class="nv">$signature</span><span class="p">,</span><span class="nv">$newImg</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+
+<p>Expliquons le code précédent:</p>
+
+<pre><code>$originalImg : le chemain vers l'image originale.
+
+$signature : le texte que vous voulez le coller sur l'image.
+
+$newImg : le chemain vers la nouvelle image. Cela peut être le même que l'image originale et dans ce cas la nouvelle image remplace l'ancienne.
+</code></pre>
+
+<p>Exemple:</p>
+
+<div class="highlight highlight-php"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="nv">$legend</span><span class="o">=</span><span class="k">new</span> <span class="nx">Filgrane</span><span class="p">(</span><span class="s1">'image.png'</span><span class="p">,</span><span class="s1">'ma signature'</span><span class="p">,</span><span class="s1">'nouvelle.png'</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+
+<p>Noter bien qu'on peut créer une image avec une extension différente que l'originale.</p>
+
+<div class="highlight highlight-php"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="nv">$legend</span><span class="o">=</span><span class="k">new</span> <span class="nx">Filgrane</span><span class="p">(</span><span class="s1">'image.png'</span><span class="p">,</span><span class="s1">'ma signature'</span><span class="p">,</span><span class="s1">'nouvelle.jpg'</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+
+<p>Code complet</p>
+
+<div class="highlight highlight-php"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="k">include</span> <span class="s1">'Filgrane.php'</span><span class="p">;</span>
+<span class="nv">$img</span><span class="o">=</span><span class="s1">'image.png'</span><span class="p">;</span>
+<span class="nv">$new</span><span class="o">=</span><span class="s1">'nouvelle.png'</span><span class="p">;</span>
+<span class="nv">$legend</span><span class="o">=</span><span class="k">new</span> <span class="nx">Filgrane</span><span class="p">(</span><span class="nv">$img</span><span class="p">,</span><span class="s1">'ma signature'</span><span class="p">,</span><span class="nv">$new</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">&lt;img src="</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$new</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">" /&gt;</span>
+</pre></div>
+
+<p>Vous pouvez vous inspirer de l'exemple ci-joint.
+N'hésiter pas à le partager avec vos collégues.</p>
+
+<h2>
+<a name="author" class="anchor" href="#author"><span class="octicon octicon-link"></span></a>Author</h2>
+
+<p><a href="https://www.facebook.com/Bahri.Nassim">Nassim Bahri</a> (<a href="http://www.linkedin.com/pub/nassim-bahri/32/b38/a11">LinkedIn</a>)</p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/NassimBahri/Filgrane/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/NassimBahri/Filgrane/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/NassimBahri/Filgrane"></a> is maintained by <a href="https://github.com/NassimBahri">NassimBahri</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
